@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurante El Sazón</title>
+
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fffaf0;
+      color: #333;
+    }
+
+    /* Encabezado con navbar */
+    header {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #e63946;
+      letter-spacing: 2px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #e63946;
+    }
+
+    /* Hero */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8rem 2rem 4rem;
+      max-width: 1200px;
+      margin: auto;
+      gap: 2rem;
+    }
+
+    .hero-text {
+      flex: 1;
+      animation: fadeInLeft 1.2s ease-out;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #1d3557;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #555;
+    }
+
+    .hero-text button {
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 25px;
+      background: #e63946;
+      color: white;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .hero-text button:hover {
+      transform: scale(1.05);
+      background: #d62839;
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      animation: fadeInRight 1.2s ease-out;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Animaciones */
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Encabezado -->
+  <header>
+    <nav>
+      <div class="logo">El Sazón</div>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Menú</a></li>
+        <li><a href="#">Reservas</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Sección Hero -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Sabores que Enamoran</h1>
+      <p>Descubre una experiencia culinaria única con ingredientes frescos y recetas tradicionales con un toque moderno.</p>
+      <button>Haz tu reserva</button>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1604908177522-0407e94b5c3b" alt="Plato delicioso">
+    </div>
+  </section>
+
+  <!-- Chatbot en esquina inferior derecha -->
+  <div class="chatbot-container">
+   <iframe
+    id="chatbot-iframe"
+    src="https://chatbotpr.netlify.app/chatbot.html"
+    width="350"
+    height="600"
+    frameborder="0"
+    style="
+        border:1px solid #ccc; 
+        border-radius:10px; 
+        display:none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+    "
+></iframe>
+    <button class="chatbot-button" onclick="toggleChat()">💬</button>
+  </div>
+
+  <script>
+    function toggleChat() {
+      const container = document.querySelector('.chatbot-container');
+      const iframe = document.getElementById('chatbot-iframe');
+      container.classList.toggle('active');
+      iframe.style.display = iframe.style.display === "none" ? "block" : "none";
+    }
+  </script>
+</body>
+</html>
